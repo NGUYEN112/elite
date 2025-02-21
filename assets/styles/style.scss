@@ -1,0 +1,156 @@
+@charset "utf-8";
+@import "reset.css";
+@import "variables.scss";
+@import "mixins.scss";
+
+html {
+    @include breakpoints(
+        "font-size",
+        "",
+        (
+            1920: 10px,
+            1600: 0.66vw,
+            1440: 0.694vw,
+            768: 1.302vw,
+        )
+    );
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+img {
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+}
+  
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+a , span {
+    display: inline-block;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+    &__top {
+        background-color: #fff;
+        @include flex(center, flex-end);
+        padding:.7rem 32px;
+        a {
+            @include font-style($poppins-font,1.4rem,500,2.1rem);
+            color: $primary-blue;            
+        }
+        a span {
+            display: inline-block;
+            width: 2rem;
+            margin-right: 1rem;
+        }
+    }
+    &__navBar {
+        @include flex(center, space-between);
+        padding: 1.4rem 3.2rem;
+        a.link-home {
+            width: 19.7rem;
+            margin-right: 7.7rem;
+            filter: invert(0%) sepia(100%) saturate(7500%) hue-rotate(328deg) brightness(89%) contrast(114%);
+        }
+    }
+    &__navList {
+        flex-grow: 1;
+        @include flex(center, space-between);
+    }
+    &__navLink {
+        a {
+            @include font-style($poppins-font, 1.6rem,500,2.4rem);
+            color: #fff;
+            padding: 0 1.2rem;
+        }
+        a:hover,
+        a.active {
+            color: $secondary-blue;
+        }
+    }
+}
+
+#section01.bannerSection {
+    @include size(100vw,100vh);
+    @include flex(center,center,column);
+    background: url(/assets/images/img_banner.jpg) no-repeat;
+    background-size: 100%;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        @include size(100%,100%);
+        top: 0;
+        left: 0;
+        background-color: #000;
+        z-index: 2;
+        opacity: 50%;
+    }
+    .home-slick {
+        width: 83%;
+        z-index: 3;
+    }
+    h2 {
+        padding-right: 36%;
+        @include font-style($poppins-font,5.6rem,700,7.28rem);
+        color: #fff;
+        white-space: normal;
+        margin-bottom: 4.8rem;
+    }
+    p {
+        padding-right: 36%;
+        @include font-style($inter-font,3.2rem,400,3.873rem);
+        color: #fff;
+        letter-spacing: 1px;
+    }
+    .slick-slider {
+        margin-bottom: 8.8rem;
+    }
+    .custome-dots ul {
+        @include flex(center,center);
+        position: relative;
+        z-index: 3;
+        gap: 1.6rem;
+    }
+    .custome-dots li.slick-active button {
+        @include size(4rem);
+        background-color: transparent;
+        border: solid 1px $saffron;
+        @include font-style($poppins-font,1.2rem, 600);
+        color: $saffron;
+        background-color: transparent;
+    }
+
+    .custome-dots li button {
+        font-size: 0;
+        @include size(1.2rem);
+        border-radius: 50%;
+        border: solid 1px #fff;
+        padding: 0;
+        transition: all .25s linear;
+    }
+}
+
+.section {
+    &__inner.fixed-width {
+        width: 120rem;
+        margin: 0 auto;
+        @include flex(center, space-between);
+        gap: 4rem;
+        flex-wrap: wrap;
+    }
+}
+
+.section02 {
+
+}
+

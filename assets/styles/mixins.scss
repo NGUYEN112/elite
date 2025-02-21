@@ -1,0 +1,34 @@
+@mixin breakpoints(
+  $cssProp: "padding",
+  $cssPropUnit: "px",
+  $values: (),
+  $mediaQueryType: "max-width"
+) {
+  @each $screen, $breakpoint in $values {
+    @media (max-width: #{$screen}px) {
+      #{$cssProp}: #{$breakpoint + $cssPropUnit};
+    }
+  }
+}
+@mixin background-img($position, $size: inherit) {
+    background-repeat: no-repeat;
+    background-position: $position;
+    background-size: $size;
+}
+@mixin size($width, $height: $width, $base: 10) {
+    width: $width;
+    height: $height;
+}
+@mixin flex($aligin: center, $justify: space-between, $direction: row) {
+    display: flex;
+    align-items: $aligin;
+    justify-content: $justify;
+    flex-direction: $direction;
+}
+
+@mixin font-style($font,$fSize, $fWeight: 400, $lineH: 1) {
+  font-family: $font;
+  font-size: $fSize;
+  font-weight: $fWeight;
+  line-height: $lineH;
+}
