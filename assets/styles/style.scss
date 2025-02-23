@@ -26,7 +26,6 @@ img {
   
 a {
     text-decoration: none;
-    text-transform: uppercase;
 }
 
 a , span {
@@ -56,6 +55,7 @@ a , span {
     &__navBar {
         @include flex(center, space-between);
         padding: 1.4rem 3.2rem;
+        background-color: transparent;
         a.link-home {
             width: 19.7rem;
             margin-right: 7.7rem;
@@ -71,11 +71,20 @@ a , span {
             @include font-style($poppins-font, 1.6rem,500,2.4rem);
             color: #fff;
             padding: 0 1.2rem;
+            transition: all .25s linear;
         }
         a:hover,
         a.active {
             color: $secondary-blue;
         }
+    }
+    &__navBar.fixed_bg {
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.15) 0 1.95px 2.6px;
+    }
+    &__navBar.fixed_bg .header__navList a {
+        color: #26262E
+        
     }
 }
 
@@ -83,7 +92,7 @@ a , span {
     @include size(100vw,100vh);
     @include flex(center,center,column);
     background: url(/assets/images/img_banner.jpg) no-repeat;
-    background-size: 100%;
+    background-size: cover;
     position: relative;
     &::before {
         content: "";
@@ -144,13 +153,232 @@ a , span {
     &__inner.fixed-width {
         width: 120rem;
         margin: 0 auto;
-        @include flex(center, space-between);
-        gap: 4rem;
-        flex-wrap: wrap;
     }
 }
 
 .section02 {
-
+    padding: 6.4rem 0;
+    &__content {
+        @include flex(flex-start, space-between);
+        gap: 4rem;
+        flex-wrap: wrap;
+        padding-bottom: 6.9rem;
+        border-bottom: solid 1px #d3d7e5;
+    }
+    &__contentBlock {
+        width: calc(50% - 2rem);
+        h2 {
+            @include font-style($poppins-font,3.2rem,700,4.16rem);
+            margin-bottom: 3.2rem;
+        }
+        .block-list li {
+            @include font-style($poppins-font,1.6rem,400,2.4rem);
+            margin-bottom: 1.6rem;
+        }
+        .block-list li:first-child {
+            margin-bottom: 3.2rem;
+        }
+        .block-list li span {
+            width: 4rem;
+            margin-right: 1.6rem;
+        }
+        & .img-cover {
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+        p {
+            @include font-style($poppins-font,1.6rem,400,2.4rem);
+        }
+        p span {
+            font-weight: 700;
+            display: inline;
+        }
+    }
+    &__links {
+        @include flex(flex-start,space-between);
+        gap: 2.4rem;
+        padding: 6.5rem 0;
+        .block-link {
+            position: relative;
+        }
+        .block-link .img-cover {
+            @include size(38.4rem);
+            background: url(/assets/images/img_link_01.png) no-repeat;
+            background-size: auto 100%;
+            border-radius: 1.5rem;
+            margin-bottom: 2.4rem;
+        }
+        .block-link:nth-child(2) .img-cover {
+            background: url(/assets/images/img_link_02.png) no-repeat;
+            background-size: auto 100%;
+        }
+        .block-link:nth-child(3) .img-cover {
+            background: url(/assets/images/img_link_03.jpg) no-repeat;
+            background-size: auto 100%;
+        }
+        h3 {
+            @include font-style($poppins-font,2.4rem,700,3.12rem);
+        }
+        a {
+            position: absolute;
+            right: 0rem;
+            top: 29.1rem;
+            padding: 2.1rem;
+            padding-right: 0;
+            background-color: #fff;
+            border-radius: 50% 0 0 0;
+        }
+        a::before {
+            content: "";
+            width: 4rem;
+            height: 4rem;
+            background-color: #fff;
+            position: absolute;
+            bottom: 2.1rem;
+            left: -4rem;
+            mask-image: radial-gradient(circle at bottom left, transparent 60%, #fff 62%);
+            -webkit-mask-image: radial-gradient(circle at bottom left, transparent 70%, #fff 75%);
+            border-radius: 0;
+            transform: rotate(90deg);
+        }
+        a::after {
+            content: "";
+            width: 4rem;
+            height: 4rem;
+            background-color: #fff;
+            position: absolute;
+            top: -4rem;
+            right: 0;
+            mask-image: radial-gradient(circle at bottom left, transparent 60%, #fff 62%);
+            -webkit-mask-image: radial-gradient(circle at bottom left, transparent 70%, #fff 75%);
+            border-radius: 0;
+            transform: rotate(90deg);
+        }
+    }
 }
 
+.section03 {
+    background-color: $primary-blue;
+    padding: 9.5rem 9.8rem;
+    &__inner {
+        background-color: #fff;
+        border: solid 1px #D3D7E5;
+        border-radius: 1.6rem;
+        @include flex(censter,space-between);
+        padding: 5.6rem;
+        .img-cover {
+            width: 32rem;
+            margin-right: 5.6rem;
+        }
+    }
+    &__content {
+        flex-grow: 1;
+        h2 {
+            @include font-style($poppins-font,4.8rem,700,6.24rem);
+            margin-bottom: 2.4rem;
+        }
+        p {
+            @include font-style($poppins-font,1.6rem,400,2.4rem);
+            margin-bottom: 2.4rem;
+        }
+        a {
+            @include font-style($poppins-font,1.6rem,400,4rem);
+            padding: 0 2.4rem;
+            color: #FEFEFE;
+            border-radius: .8rem;
+            background-color: #26262E;
+        }
+    }
+}
+.footer {
+    @include flex(stretch,space-between);
+    background-color: #F7FAFC;
+    &__block {
+        &:nth-child(1) {
+            flex-grow: 1;
+            padding: 0 12rem;
+            background-color: #fff;
+        }
+        &:nth-child(2) {
+            width: 22.3%;
+            @include flex(center,center,column);
+            padding: 0 4rem;
+            box-sizing: border-box;
+        }
+    }
+    &__mainContent {
+        padding: 10rem 0 6.4rem;
+        @include flex(flex-start,flex-start);
+        border-bottom: solid 1px #d3d7e5;
+        ul li {
+            @include font-style($poppins-font,1.4rem,400,2.1rem);
+            margin-bottom: 1.6rem;
+            color: #6E6F73;
+            text-transform: capitalize;
+        }
+        ul li:first-child {
+            @include font-style($poppins-font,1.6rem,500,2.4rem);
+            color: #0D1436;
+        }
+        ul li:last-child {
+            margin-bottom: 0;
+        }
+        ul li a {
+            @include font-style($poppins-font,1.4rem,400,2.1rem);
+            color: #6E6F73;
+            text-transform: capitalize; 
+        }
+        ul:first-child {
+            margin-right: 2.4rem;
+            width: 28.5rem;
+        }
+    }
+    &__subContent {
+        padding: 2.6rem 3.4rem;
+        @include flex(center, flex-start);
+        p {
+            @include font-style($poppins-font,1.4rem,400,2.1rem);
+            color: #696C80;
+            margin-right: 12.8rem;
+        }
+        > a {
+            @include flex(center, flex-start);
+            @include font-style($poppins-font,1.4rem,400,2.1rem);
+            color: #696C80;
+            margin-right: 6.8rem;
+        }
+        > a span {
+            margin-right: .8rem;
+        }
+        ul {
+            @include flex(center, flex-start);
+        }
+        ul li {
+            margin-right: 4rem;
+        }
+    }
+    &__block:nth-child(2) h3{
+        @include font-style($poppins-font,2.4rem,500,3.12rem);
+        margin-bottom: 1.6rem;
+    }
+    &__block:nth-child(2) ul li {
+        @include flex(flex-start,flex-start,column);
+        margin-bottom: 1.9rem;
+    }
+    &__block:nth-child(2) ul li span:nth-child(1) {
+        @include font-style($poppins-font,1.4rem,400,2.1rem);
+        color: #6E6F73;
+        margin-bottom: 1.6rem;
+    }
+    &__block:nth-child(2) ul li span:nth-child(2) {
+        @include flex(center,flex-start);
+    }
+    &__block:nth-child(2) ul li span:nth-child(2) p {
+        @include font-style($poppins-font,1.6rem,500,2.1rem);
+        color: #26262E;
+    }
+    &__block:nth-child(2) ul li span:nth-child(2) i {
+        width: 1.875rem;
+        display: inline-block;
+        margin-right: 1rem;
+    }
+}
