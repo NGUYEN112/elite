@@ -86,6 +86,12 @@ a , span {
         color: #26262E
         
     }
+    &__navBar.fixed_bg .header__navList a {
+        &:hover,
+        &.active {
+            color: $secondary-blue;
+        }
+    }
 }
 
 #section01.bannerSection {
@@ -381,4 +387,74 @@ a , span {
         display: inline-block;
         margin-right: 1rem;
     }
+}
+
+.section04 {
+    @include size(100vw,100vh);
+    @include flex(center,center,column);
+    background: url(/assets/images/img_banner_02.jpg) no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+    position: relative;
+    text-align: center;
+   &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        z-index: 2;
+        opacity: 50%;
+    }
+    &__inner {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        @include flex(center,center,column);    
+    }
+    h2 {
+        @include font-style($poppins-font,5.6rem,700,7.28rem);
+        color: #fff;
+        margin-bottom: 1rem
+    }
+    p {
+        color: #fff;
+        @include font-style($poppins-font,1.6rem,400,2.4rem);
+        margin-bottom: 6.6rem;
+    }
+    p.labelForForm {
+        @include font-style($inter-font,2.4rem,500,3.12rem);
+        margin-bottom: 1rem;
+    }
+    &__search {
+        width: 55%;
+        position: relative;
+        input {
+            width: 100%;
+            height: 6.8rem;
+            border-radius: .8rem;
+            border: none;
+            padding: 0 8.4rem 0 1.6rem;
+            box-sizing: border-box;
+        }
+        & input::placeholder, ::-webkit-input-placeholder, input {
+            @include font-style($poppins-font,2rem,400,2.6  rem);
+            color: #6E6F73;
+        }
+        button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            @include size(6.8rem);
+            background-color: #23BDFF;
+            border: none;
+            border-radius: 0 .8rem .8rem 0;
+        }
+        button img {
+            @include size(4rem);
+        }
+    }
+    
 }
