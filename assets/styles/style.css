@@ -228,6 +228,13 @@ a, span {
   padding: 4.4vw 12rem 4.4vw 0;
   gap: 12rem;
 }
+.section__block#hoa {
+  padding: 4.4vw 0 4.4vw 12rem;
+  gap: 12rem;
+}
+.section__block#hoa .image-contain {
+  border-radius: 2rem 0 0 2rem;
+}
 .section__block.contact {
   display: flex;
   align-items: center;

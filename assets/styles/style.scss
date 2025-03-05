@@ -188,6 +188,13 @@ a , span {
         padding: 4.4vw 12rem 4.4vw 0;
         gap: 12rem;
     }
+    &__block#hoa {
+        padding: 4.4vw 0 4.4vw 12rem;
+        gap: 12rem;
+        .image-contain {
+            border-radius: 2rem 0 0 2rem;
+        }
+    }
     &__block.contact {
         @include flex(center,flex-start, column);
         padding-top: 6.4rem;
