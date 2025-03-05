@@ -19,7 +19,7 @@ window.onload = function () {
   }
 
   var mainHavePaddingTop = document.querySelector("main.p-header")
-  mainHavePaddingTop.style.paddingTop = document.querySelector("header.header").offsetHeight + "px";
+  mainHavePaddingTop ? mainHavePaddingTop.style.paddingTop = document.querySelector("header.header").offsetHeight + "px" : false
 
   $('.category-slide').slick({
     slidesToShow: 4,
@@ -54,4 +54,12 @@ window.onload = function () {
     });
     $(".slick-slide button").css("height", maxHeight + "px");
   }
+
+  $(".c-tabs_nav_trigger").click(function () {
+    $(".c-tabs_nav_trigger").removeClass("is-checked");
+    $(this).addClass("is-checked");
+    let tabId = $(this).attr("aria-controls");
+    $(".c-tabs_panel").removeClass("is-checked");
+    $(".c-tabs_panel#" + tabId).addClass("is-checked");
+  })
 };

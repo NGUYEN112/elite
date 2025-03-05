@@ -41,7 +41,7 @@ a , span {
     &__top {
         background-color: #fff;
         @include flex(center, flex-end);
-        padding:.7rem 32px;
+        padding:.7rem 3.2rem;
         a {
             @include font-style($poppins-font,1.4rem,500,2.1rem);
             color: $primary-blue;            
@@ -619,4 +619,103 @@ a , span {
         }
     }
     
+}
+
+.section05 {
+    background: url(/assets/images/img_bg_ttl.jpg) no-repeat;
+    background-size: 100% auto;
+    background-position: left center;
+    position: relative;
+    margin-top: 3.5rem;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #000;
+        z-index: 2;
+        opacity: 50%;
+    }
+    &__inner {
+        padding: 14rem 0 6.7rem;
+        position: relative;
+        z-index: 3;
+        h1 {
+            @include font-style($poppins-font,5.6rem,700,7.28rem);
+            color: #fff;
+            text-align: center;
+            
+        }
+    }
+}
+
+.section06 {
+    &__inner {
+        padding: 0 20rem;
+    }
+    &__tabs {
+        padding: 8rem 0;
+        .c-tabs_nav {
+            @include flex(center,center);
+            gap: 4.8rem;
+            margin-bottom: 4.8rem;
+        }
+        .c-tabs_nav button {
+            @include font-style($poppins-font,3.6rem,700,6.7rem);
+            border: none;
+            background-color: transparent;
+            padding: 0 1.6rem;
+            cursor: pointer;
+            color: #6E6F73;
+        }
+        .c-tabs_nav button.is-checked {
+            color: $primary-blue;
+            border-bottom: solid 3px $primary-blue;
+        }
+        .c-tabs_panels .c-tabs_panel {
+            display: none;
+        }
+        .c-tabs_panels .c-tabs_panel.is-checked {
+            display: block;
+        }
+        .c-accordion .c-accordion_item{
+            padding: 4rem 1.6rem;
+            border-bottom: solid 1px #D3D7E5;
+        }
+        .c-accordion .c-accordion_item summary {
+            @include font-style($poppins-font,2.8rem,700,3.64rem);
+            color: #26262E;
+            margin-bottom: 2.4rem;
+            position: relative;
+            list-style: none;
+            cursor: pointer;
+        }
+        .c-accordion .c-accordion_item summary::-webkit-details-marker {
+            display: none;
+        }
+        .c-accordion .c-accordion_item summary::before{
+            content: "";
+            position: absolute;
+            @include size(2.2rem,1.2rem);
+            background: url(/assets/images/i_arrow_d.png) no-repeat;
+            background-size: 100%;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all .25s linear;
+        }
+        .c-accordion .c-accordion_item details[open] summary::before {
+            transform: rotate(180deg) translateY(50%);
+        }
+        .c-accordion .c-accordion_item p {
+            @include font-style($poppins-font,1.4rem,400,2.1rem);
+            color: #57595B;
+        }
+        .c-accordion .c-accordion_item p a {
+            color: #57595B;
+            text-decoration: underline;
+        }
+    }
 }

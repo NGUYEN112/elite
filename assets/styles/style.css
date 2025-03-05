@@ -53,7 +53,7 @@ a, span {
   align-items: center;
   justify-content: flex-end;
   flex-direction: row;
-  padding: 0.7rem 32px;
+  padding: 0.7rem 3.2rem;
 }
 .header__top a {
   font-family: "Poppins";
@@ -774,6 +774,118 @@ a, span {
 .section04__search button img {
   width: 4rem;
   height: 4rem;
+}
+
+.section05 {
+  background: url(/assets/images/img_bg_ttl.jpg) no-repeat;
+  background-size: 100% auto;
+  background-position: left center;
+  position: relative;
+  margin-top: 3.5rem;
+}
+.section05::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  z-index: 2;
+  opacity: 50%;
+}
+.section05__inner {
+  padding: 14rem 0 6.7rem;
+  position: relative;
+  z-index: 3;
+}
+.section05__inner h1 {
+  font-family: "Poppins";
+  font-size: 5.6rem;
+  font-weight: 700;
+  line-height: 7.28rem;
+  color: #fff;
+  text-align: center;
+}
+
+.section06__inner {
+  padding: 0 20rem;
+}
+.section06__tabs {
+  padding: 8rem 0;
+}
+.section06__tabs .c-tabs_nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 4.8rem;
+  margin-bottom: 4.8rem;
+}
+.section06__tabs .c-tabs_nav button {
+  font-family: "Poppins";
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 6.7rem;
+  border: none;
+  background-color: transparent;
+  padding: 0 1.6rem;
+  cursor: pointer;
+  color: #6E6F73;
+}
+.section06__tabs .c-tabs_nav button.is-checked {
+  color: #158BE3;
+  border-bottom: solid 3px #158BE3;
+}
+.section06__tabs .c-tabs_panels .c-tabs_panel {
+  display: none;
+}
+.section06__tabs .c-tabs_panels .c-tabs_panel.is-checked {
+  display: block;
+}
+.section06__tabs .c-accordion .c-accordion_item {
+  padding: 4rem 1.6rem;
+  border-bottom: solid 1px #D3D7E5;
+}
+.section06__tabs .c-accordion .c-accordion_item summary {
+  font-family: "Poppins";
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 3.64rem;
+  color: #26262E;
+  margin-bottom: 2.4rem;
+  position: relative;
+  list-style: none;
+  cursor: pointer;
+}
+.section06__tabs .c-accordion .c-accordion_item summary::-webkit-details-marker {
+  display: none;
+}
+.section06__tabs .c-accordion .c-accordion_item summary::before {
+  content: "";
+  position: absolute;
+  width: 2.2rem;
+  height: 1.2rem;
+  background: url(/assets/images/i_arrow_d.png) no-repeat;
+  background-size: 100%;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.25s linear;
+}
+.section06__tabs .c-accordion .c-accordion_item details[open] summary::before {
+  transform: rotate(180deg) translateY(50%);
+}
+.section06__tabs .c-accordion .c-accordion_item p {
+  font-family: "Poppins";
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.1rem;
+  color: #57595B;
+}
+.section06__tabs .c-accordion .c-accordion_item p a {
+  color: #57595B;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=style.css.map */
