@@ -77,8 +77,14 @@ a, span {
 }
 .header__navBar a.link-home {
   width: 19.7rem;
+  height: 7.4rem;
   margin-right: 7.7rem;
-  filter: invert(0%) sepia(100%) saturate(7500%) hue-rotate(328deg) brightness(89%) contrast(114%);
+  background: url(/assets/images/img_logo_w.png) no-repeat;
+  background-size: 100%;
+}
+.header__navBar.fixed_bg a.link-home, .header__navBar.relative_color a.link-home {
+  background: url(/assets/images/img_logo_color.png) no-repeat;
+  background-size: 100%;
 }
 .header__navList {
   flex-grow: 1;
@@ -1061,6 +1067,92 @@ a, span {
 .section10 iframe {
   width: 100%;
   height: 50rem;
+}
+
+.section11 {
+  padding: 8rem 12rem;
+}
+.section11__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8rem;
+}
+.section11__inner .image-contain {
+  width: 50rem;
+}
+.section11__contactForm h2 {
+  font-family: "Poppins";
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 5.2rem;
+  margin-bottom: 3.2rem;
+}
+.section11__contactForm h2 span {
+  outline: none;
+  border: none;
+  filter: drop-shadow(0 0 0 transparent);
+}
+.section11__contactForm .c-form-element {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 5.6rem;
+  margin-bottom: 4rem;
+}
+.section11__contactForm .c-form-group label {
+  font-family: "Poppins";
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+.section11__contactForm .c-form-group input {
+  height: 4.4rem;
+  padding: 0 1.6rem;
+  background-color: #EFEFEF;
+  border: none;
+  width: 28.4rem;
+  box-sizing: border-box;
+}
+.section11__contactForm .c-form-group input::placeholder, .section11__contactForm .c-form-group input::-webkit-input-placeholder, .section11__contactForm .c-form-group input {
+  font-family: "Poppins";
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: #73716E;
+}
+.section11__contactForm .c-form-group--textarea {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-bottom: 3.2rem;
+}
+.section11__contactForm .c-form-group textarea {
+  width: 62rem;
+  border: none;
+  background-color: #EFEFEF;
+  font-family: "Poppins";
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: #73716E;
+  padding: 1.6rem;
+}
+.section11__contactForm .c-form-group--submit button {
+  width: 100%;
+  font-family: "Poppins";
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 4.5rem;
+  text-transform: uppercase;
+  border: none;
+  background-color: #26262E;
+  color: #FEFEFE;
+  border-radius: 0.8rem;
 }
 
 /*# sourceMappingURL=style.css.map */
