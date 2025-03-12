@@ -1,4 +1,6 @@
-
+if(window.innerWidth <= 767) {
+  $("#services").removeClass(".relative_color")
+}
 
 window.onload = function () {
   $(".home-slick").slick({
@@ -9,23 +11,49 @@ window.onload = function () {
   })
 
   window.addEventListener("scroll", fixedHeader);
-
+  fixedHeader()
   function fixedHeader() {
-    if (window.scrollY > 0) {
-      document.querySelector("nav.header__navBar").classList.add("fixed_bg");
-    } else {
-      document.querySelector("nav.header__navBar").classList.remove("fixed_bg");
+    if(!document.querySelector("header#contact")) {
+      if (window.scrollY > 0) {
+        document.querySelector("nav.header__navBar").classList.add("fixed_bg");
+        if(window.innerWidth <= 768) {
+          document.querySelector(".header__hambuger ").classList.add("change_color")
+          document.querySelector("nav.header__navBar").classList.remove("relative_color");
+        }
+      } else {
+        document.querySelector("nav.header__navBar").classList.remove("fixed_bg");
+        // document.querySelector("nav.header__navBar").classList.add("relative_color");
+        if(window.innerWidth <= 768 && !document.querySelector("header#contact")) {
+          document.querySelector(".header__hambuger ").classList.remove("change_color")
+        }
+      }
     }
   }
 
   var mainHavePaddingTop = document.querySelector("main.p-header")
-  mainHavePaddingTop ? mainHavePaddingTop.style.paddingTop = document.querySelector("header.header").offsetHeight + "px" : false
+  if((mainHavePaddingTop && window.innerWidth > 768) || (mainHavePaddingTop && document.querySelector("header#contact"))) {
+    mainHavePaddingTop.style.paddingTop = document.querySelector("header.header").offsetHeight + "px"
+  }
 
   $('.category-slide').slick({
     slidesToShow: 4,
     slidesToScroll: 1,
     // focusOnSelect: true,
-    infinite: false
+    infinite: false,
+    responsive: [
+      {
+          breakpoint: 768,
+          settings: {
+              slidesToShow: 3
+          }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+            slidesToShow: 2
+        }
+    }
+  ]
   });
 
   $(".openInfo").click(function () {
@@ -62,4 +90,11 @@ window.onload = function () {
     $(".c-tabs_panel").removeClass("is-checked");
     $(".c-tabs_panel#" + tabId).addClass("is-checked");
   })
+
+  $(".header__hambuger").click(function () {
+    $(".header__hambuger").toggleClass("active");
+    $(".header__navList").toggleClass("active");
+  })
+
+  
 };
