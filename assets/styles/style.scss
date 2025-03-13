@@ -109,9 +109,10 @@ a , span {
 #section01.bannerSection {
     @include size(100vw,100vh);
     @include flex(center,center,column);
-    background: url(../images/img_banner.jpg) no-repeat;
+    background: url(../images/img_slide_bnr_01.jpg) no-repeat;
     background-size: cover;
     position: relative;
+    transition: all 0.25s linear;
     &::before {
         content: "";
         position: absolute;
@@ -316,9 +317,14 @@ a , span {
         button img {
             @include size(3.2rem);
         }
-        .image-contain img {
-            width: 48.5rem;
+        .image-contain {
+            @include size(48.5rem,30rem);
             border-radius: 2rem;
+            @include flex(center,center);
+        }
+        .image-contain img {
+            object-fit: cover;
+            @include size(100%, auto);
         }
         ul {
             margin-right: 4rem;

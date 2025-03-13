@@ -3,12 +3,47 @@ if(window.innerWidth <= 767) {
 }
 
 window.onload = function () {
-  $(".home-slick").slick({
+  var path = window.location.pathname.split("/").pop(); 
+  if(path === "") {    
+    $("#index").addClass("active")
+  }else {
+    $("#"+path.slice(0,-5)).addClass("active")
+    console.log($("#"+path.slice(0,-5)));
+    
+  }
+  
+  
+
+  var homeSlider = $(".home-slick")
+  homeSlider.slick({
     arrows: false,
     dots: true,
     appendDots: $(".custome-dots"),
-    slideToShow: 1
+    slideToShow: 1, 
+    autoplay: true,
+    autoplaySpeed: 3000
   })
+
+  homeSlider.on('beforeChange', function(event, slick, currentSlide){
+    var section01 = $("#section01")
+    switch (currentSlide) {
+      case 1:
+        section01.css({
+          "background-image": "url(../assets/images/img_slide_bnr_03.jpg)",
+        })
+        break;
+      case 2: 
+        section01.css({
+          "background-image": "url(../assets/images/img_slide_bnr_01.jpg)"
+        })
+      break;
+      default:
+        section01.css({
+          "background-image": "url(../assets/images/img_slide_bnr_02.jpg)"
+        })
+        break;
+    }
+  });
 
   window.addEventListener("scroll", fixedHeader);
   fixedHeader()
@@ -35,34 +70,43 @@ window.onload = function () {
     mainHavePaddingTop.style.paddingTop = document.querySelector("header.header").offsetHeight + "px"
   }
 
-  $('.category-slide').slick({
+  var categorySlide = $('.category-slide')
+  categorySlide.slick({
     slidesToShow: 4,
-    slidesToScroll: 1,
-    // focusOnSelect: true,
+    slidesToScroll: 4,
+    focusOnSelect: false,
     infinite: false,
     responsive: [
       {
           breakpoint: 768,
           settings: {
-              slidesToShow: 3
+              slidesToShow: 3,
+              slidesToScroll: 3
           }
       },
       {
         breakpoint: 480,
         settings: {
-            slidesToShow: 2
+            slidesToShow: 2,
+            slidesToScroll: 2
         }
     }
   ]
   });
-
-  $(".openInfo").click(function () {
-    $(".openInfo").removeClass("active");
-    $(this).addClass("active");
-    let infoId = $(this).attr("id");
-    $(".slide-info").removeClass("active")
-    $(".slide-info#info"+infoId).addClass("active")
+  
+  $(".slick-arrow").click(function (event) {
+    openInfoCategory($(".category-slide .slick-current .openInfo").attr("id"))
   })
+  $(".openInfo").click(function (event) {
+    openInfoCategory($(this).attr('id'))
+  })
+
+  function openInfoCategory(id){    
+      $(".openInfo").removeClass("active");
+      $(".openInfo#"+id).addClass("active");
+      $(".slide-info").removeClass("active")
+      $(".slide-info#info"+id).addClass("active")
+  }
 
   $(".closeSlideInfo").click(function () {
     let parentId = $(this).parent().attr('id');

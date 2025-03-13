@@ -134,9 +134,10 @@ a, span {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: url(../images/img_banner.jpg) no-repeat;
+  background: url(../images/img_slide_bnr_01.jpg) no-repeat;
   background-size: cover;
   position: relative;
+  transition: all 0.25s linear;
 }
 #section01.bannerSection::before {
   content: "";
@@ -378,9 +379,19 @@ a, span {
   width: 3.2rem;
   height: 3.2rem;
 }
-.section .slide-info .image-contain img {
+.section .slide-info .image-contain {
   width: 48.5rem;
+  height: 30rem;
   border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.section .slide-info .image-contain img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
 }
 .section .slide-info ul {
   margin-right: 4rem;
