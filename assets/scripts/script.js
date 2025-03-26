@@ -12,8 +12,6 @@ window.onload = function () {
     
   }
   
-  
-
   var homeSlider = $(".home-slick")
   homeSlider.slick({
     arrows: false,
